@@ -1,0 +1,42 @@
+<------------------------Scrapy Project Structure------------------------->
+
+PythonScrapyTutorial --> This our virtual envirnment folder
+quotetutorial --> This our project folder 
+     |--->quotetutorial --> This is our Scrapy Project folder
+Spider -->Spider is basically a python program that scrapes another websites
+
+__init__py --> There is two init files(initialization files) that you donot need to worry about scrapy just uses them for its purposes
+
+settings.py --> BOT_NAME --> BOT is basically the anything that automates the writing of code or automate some kind of action on the internet
+   |
+   |--> Concurrent requests --> whenever you make a lot of requests at the same then that is known as concurrent requests
+   |--> AUTOTHROTTLE ENABLED --> It is basically also helps to make sure that a website that you arfe scrapping does not get overloaded
+
+items.py --> whenever we are scrappinng a website it always has a particular field of items. Wherver we want to define a field it goes into items 
+
+pipelines.py --> After scrapping the data of any website we want it to store it somewhere so for example that data can be stored in a JSON file or maybe a SQL file or SQL database or maybe a MongoDB database so this is done by using this pipline stored file 
+
+middlewares.py --> When you are sending a request to awebsite you can add some stuff to that request so for example if we are going to be learning about user agents and we are going to be adding proxies to a request proxy is basically using different IP addresses to by pass restrictions on web scraping on a website and that is known as a proxy
+     |-->Whenever we are going to be adding proxy to us requests we are going to be doing it through a middleware. Whenever a website sends a response back we can also handle that response S 
+
+CSS Selectors --> Good way to learn about CSS selectors is using somthing known as shell inside scrapy. go to the terminal and type --->(scrapy shell "https://quotes.toscrape.com/") and the scrapy is open up this website into our shell
+     |--> Shell helps us to control scrapy in command line mode
+
+extract_first --> This is use to extract the first element of the list or response.css("title::text")[0].extract() --> It is also using to extract first element from the list
+
+CSS Selectors
+1- response.css("title")
+2- response.css("title").extract()
+3- response.css("title::text").extract()
+4- response.css("title::text")[0].extract()
+5- response.css("title::text").extract_first()
+
+XPath
+1- response.xpath("//title").extract()
+2- response.xpath("//title/text()").extract()
+3- response.xpath("//span[@class='text']/text()").extract()
+4- response.xpath("//span[@class='text']/text()")[1].extract()
+
+CSS Selectors + XPath Combination
+1- response.css("li.next a").xpath("@href").extract()
+2- response.css("a").xpath("@href").extract() ---> extracting all the href values
