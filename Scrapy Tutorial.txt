@@ -40,3 +40,10 @@ XPath
 CSS Selectors + XPath Combination
 1- response.css("li.next a").xpath("@href").extract()
 2- response.css("a").xpath("@href").extract() ---> extracting all the href values
+
+Extracted data --> Temporary containers(items) --> Storing in database
+
+
+Commad to make JSON file ---> scrapy crawl quotes -o items.json
+Commad to make CSV file  ---> scrapy crawl quotes -o items.CSV
+Commad to make XML file  ---> scrapy crawl quotes -o items.xml
