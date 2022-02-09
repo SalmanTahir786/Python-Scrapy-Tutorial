@@ -7,7 +7,11 @@
 # useful for handling different item types with a single interface
 from itemadapter import ItemAdapter
 
+# Scraped data -> Item Containers -> Json/csv files
+# Scraped data -> Item Containers -> Pipeline -> SQL/Mongo database
 
 class QuotetutorialPipeline:
     def process_item(self, item, spider):
+
+        print("Pipeline :" + item['title'][0])
         return item
