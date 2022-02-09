@@ -3,8 +3,9 @@ from ..items import QuotetutorialItem
 
 class QuoteSpider(scrapy.Spider):
     name = "quotes"
+    page_number = 2
     start_urls = [
-        'https://quotes.toscrape.com/'
+        'https://quotes.toscrape.com/page/1/'
     ]
     def parse(self, response):
 
@@ -21,7 +22,8 @@ class QuoteSpider(scrapy.Spider):
             items['tag'] = tag
 
             yield items
-        next_page = response.css('li.next a::attr(href)').get()
+        next_page = 'https://quotes.toscrape.com/page/' + str(QuoteSpider.page_number) + '/'
 # Now using if condition to check the next page value is empty or not
-        if next_page is not None:
+        if QuoteSpider.page_number < 11:
+            QuoteSpider.page_number += 1
             yield response.follow(next_page, call_back=self.parse)
