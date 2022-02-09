@@ -50,7 +50,18 @@ Commad to make JSON file ---> scrapy crawl quotes -o items.json
 Commad to make CSV file  ---> scrapy crawl quotes -o items.CSV
 Commad to make XML file  ---> scrapy crawl quotes -o items.xml
 
-Pipelines.py --> But what is you want to send this data to database like SQLLite or MYSQL What we have to do is we have to add one more step to this flow after storing them inside item contaiers we are going to send them to this pipline
+Pipelines.py --> But what is you want to send this data to database like SQLLite or MYSQL What we have to do is we have to add one more step to this flow after storing them inside item contaiers we are going to send them to this pipline.
+     |-->For using Pipline.py we need to activate this pipline inside our setting.py file.
+
+response.follow --> scrapy has a very cool method inside in it. It will automatcally follow the next page and you donot have to do any work
+
+Logging in with Scrapy FormRequest --> First create a token variable inside parse function 
+
+googlebot user agent :--> search for that in chrome and go to first website and copy the first urls and then go to settings file in your project and find USER_AGENT variable and pass the copy url to that variable
+
+How to bypass user restrictions by using proxies 
+         |-->There are two ways to bypass restrictions
+         |-->One is user agents and the other is proxies which are basically rotating IP addresses
 
 
 
