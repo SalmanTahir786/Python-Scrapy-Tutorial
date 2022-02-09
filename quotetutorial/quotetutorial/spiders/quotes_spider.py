@@ -21,3 +21,7 @@ class QuoteSpider(scrapy.Spider):
             items['tag'] = tag
 
             yield items
+        next_page = response.css('li.next a::attr(href)').get()
+# Now using if condition to check the next page value is empty or not
+        if next_page is not None:
+            yield response.follow(next_page, call_back=self.parse)
